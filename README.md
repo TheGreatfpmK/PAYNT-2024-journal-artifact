@@ -62,7 +62,7 @@ The original log files that were used when preparing the submission can be found
 ---
 
 
-## Using the tools outside the scope of the artifact
+## Using the tool outside the scope of the artifact
 
 In the paper we consider an open source tool PAYNT. Note that PAYNT is built on top of Storm/StormPy. The links below document the installation process for both of the tools.
 
@@ -79,7 +79,7 @@ In the paper we consider an open source tool PAYNT. Note that PAYNT is built on 
 The models considered in our experiments are located in `PAYNT_ROOT/archive/tac24-synthesis`. We consider models from various sources:
 
 - POMDPs from Tony Cassandra's webpage https://pomdp.org/ we converted to explicit .drn format
-- POMDPs from the paper "Gethin Norman, David Parker and Xueyi Zou. Verification and Control of Partially Observable Probabilistic Systems" available at http://www.prismmodelchecker.org/files/rts-poptas/ in PRISM format
+- Models from our previous work "PAYNT: A Tool for Inductive Synthesis of Probabilistic Programs by Roman Andriushchenko, Milan Ceska, Sebastian Junges, Joost-Pieter Katoen and Simon Stupinsky" and "Inductive Synthesis of Finite-State Controllers for POMDPs by Roman Andriushchenko, Milan Ceska, Sebastian Junges, Joost-Pieter Katoen, UAI 2022" in PRISM format
 
 To learn more about the PRISM format for creating stochastic models and their specifications visit: https://www.prismmodelchecker.org/manual/ThePRISMLanguage/Introduction
 
