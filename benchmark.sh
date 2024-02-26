@@ -39,27 +39,27 @@ if [ "$overwrite" = true ]
 then
     if [ "$cs" = true ]
     then
-        python3 experiments/experiments.py cs True
+        python3 experiments-tac/experiments.py cs True
     fi
     if [ "$t2" = true ]
     then
-        python3 experiments/experiments.py t2 True
+        python3 experiments-tac/experiments.py t2 True
     fi
     if [ "$t4" = true ]
     then
-        python3 experiments/experiments.py t4 True
+        python3 experiments-tac/experiments.py t4 True
     fi
 else
         if [ "$cs" = true ]
     then
-        python3 experiments/experiments.py cs False
+        python3 experiments-tac/experiments.py cs False
     fi
     if [ "$t2" = true ]
     then
-        python3 experiments/experiments.py t2 False
+        python3 experiments-tac/experiments.py t2 False
     fi
     if [ "$t4" = true ]
     then
-        python3 experiments/experiments.py t4 False
+        python3 experiments-tac/experiments.py t4 False
     fi
 fi

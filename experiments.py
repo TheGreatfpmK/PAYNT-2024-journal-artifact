@@ -14,7 +14,7 @@ models_main = [ f.path for f in os.scandir(directory_main) if f.is_dir() ]
 directory_cpomdp = os.fsencode(dir_path + '/../models/archive/tac24-synthesis/cpomdp')
 models_cpomdp = [ f.path for f in os.scandir(directory_cpomdp) if f.is_dir() ]
 directory_cs = os.fsencode(dir_path + '/../models/archive/tac24-synthesis/case-studies')
-models_cs = [ f.path for f in os.scandir(directory_cpomdp) if f.is_dir() ]
+models_cs = [ f.path for f in os.scandir(directory_cs) if f.is_dir() ]
 
 def run_experiment(options, models, logs_string, experiment_models, timeout, special={}):
     
@@ -114,7 +114,7 @@ if __name__ == '__main__':
         options = "--fsc-synthesis"
         logs_string = "tac24-cpomdp"
         timeout = 3600
-        special = {"milos-97": f"--fsc-synthesis --constrained-bound 150", "query-s3": f"--fsc-synthesis --constrained-bound 2.75", "query-s4": f"--fsc-synthesis --constrained-bound 2.75", "tiger-grid": f"--fsc-synthesis --constrained-bound 0"}
+        special = {"milos-97": f"--fsc-synthesis --constraint-bound 150", "query-s3": f"--fsc-synthesis --constraint-bound 2.75", "query-s4": f"--fsc-synthesis --constraint-bound 2.75", "tiger-grid": f"--fsc-synthesis --constraint-bound 0"}
         run_experiment(options, models_cpomdp, logs_string, experiment_models, timeout, special)
 
         print("\nTABLE 4 EXPERIMENT COMPLETE\n")
