@@ -1,0 +1,678 @@
+2024-02-06 17:39:55,278 - cli.py - This is Paynt version 0.1.0.
+2024-02-06 17:39:55,279 - sketch.py - loading sketch from models/tac24/cpomdp/query-s3/sketch.templ ...
+2024-02-06 17:39:55,279 - sketch.py - assuming sketch in PRISM format...
+ERROR (SpiritErrorHandler.h:27): Parsing error at 1:1:  expecting <model type>, here:
+	# query.s3.POMDP
+	^
+
+2024-02-06 17:39:55,283 - sketch.py - assuming sketch in DRN format...
+ERROR (DirectEncodingParser.cpp:124): Could not parse line '# query.s3.POMDP'.
+2024-02-06 17:39:55,284 - sketch.py - assuming sketch in Cassandra format...
+MADP: trying to parse as POMDP...
+MADP: parsing success
+2024-02-06 17:39:55,291 - sketch.py - applying discount factor transformation...
+2024-02-06 17:39:55,301 - prism_parser.py - loading properties from models/tac24/cpomdp/query-s3/sketch.props ...
+2024-02-06 17:39:55,304 - prism_parser.py - found the following specification: constraints: R[exp]{"constraint"}<=53 [F "discount_sink"]; optimality: R[exp]{"reward"}max=? [F "discount_sink"] 
+2024-02-06 17:39:55,305 - sketch.py - sketch parsing OK
+2024-02-06 17:39:55,305 - sketch.py - constructed explicit quotient having 108 states and 320 actions
+2024-02-06 17:39:55,305 - sketch.py - found the following specification constraints: R[exp]{"constraint"}<=53 [F "discount_sink"]; optimality: R[exp]{"reward"}max=? [F "discount_sink"] 
+2024-02-06 17:39:55,306 - pomdp.py - constructed POMDP having 6 observations.
+2024-02-06 17:39:55,307 - pomdp.py - unfolding POMDP using the following memory allocation vector: [1, 1, 1, 1, 1, 1] ...
+2024-02-06 17:39:55,308 - pomdp.py - constructed quotient MDP having 108 states and 320 actions.
+2024-02-06 17:39:55,316 - synthesizer_pomdp.py - Synthesizing optimal k=1 controller ...
+2024-02-06 17:39:55,317 - pomdp.py - unfolding POMDP using the following memory allocation vector: [1, 1, 1, 1, 1, 1] ...
+2024-02-06 17:39:55,317 - pomdp.py - constructed quotient MDP having 108 states and 320 actions.
+2024-02-06 17:39:55,319 - synthesizer.py - synthesis initiated, design space: 81
+29.61429521321262 : 333.326811277526
+29.527457185268748 : 334.39813118297684
+25.136914125650463 : 385.37184750132667
+27.971865688644346 : 387.41602619665235
+27.791374048762112 : 388.02372394818224
+26.34540268174874 : 393.5543332253323
+2024-02-06 17:39:56,171 - synthesizer.py - synthesis finished, printing synthesized assignment below:
+2024-02-06 17:39:56,171 - synthesizer.py - A(NoResponse,0)={'(Query-0)'}, A(FastResponse,0)={'(Query-2)'}, A(SlowResponse,0)={'(Query-1)'}, A(__no_obs__,0)={'(Query-2)'}
+2024-02-06 17:39:56,187 - synthesizer.py - double-checking specification satisfiability: 26.34540268174874 : 393.5543332253323
+--------------------
+Synthesis summary:
+constraint 1: R[exp]{"constraint"}<=53 [F "discount_sink"]
+optimality objective: R[exp]{"reward"}max=? [F "discount_sink"] 
+
+method: AR, synthesis time: 0.85 s
+number of holes: 4, family size: 81, quotient: 108 states / 320 actions
+explored: 100 %
+MDP stats: avg MDP size: 107, iterations: 70
+
+optimum: 393.554333
+--------------------
+2024-02-06 17:39:56,187 - synthesizer_pomdp.py - Synthesizing optimal k=2 controller ...
+2024-02-06 17:39:56,187 - pomdp.py - unfolding POMDP using the following memory allocation vector: [2, 2, 2, 1, 2, 1] ...
+2024-02-06 17:39:56,191 - pomdp.py - constructed quotient MDP having 214 states and 1275 actions.
+2024-02-06 17:39:56,222 - synthesizer.py - synthesis initiated, design space: 3359232
+17.711830918904095 : 412.76470834386583
+17.771346167424994 : 412.81391636461404
+17.780704795796268 : 413.0121443481785
+> progress 0.292%, elapsed 3 s, estimated 1032 s, iters = {MDP: 128}, opt = 413.012
+> progress 0.53%, elapsed 6 s, estimated 1137 s, iters = {MDP: 276}, opt = 413.012
+16.784398852796965 : 422.9280050096797
+16.52902513798574 : 425.1645939529751
+16.535043892798228 : 425.2338714724459
+> progress 0.708%, elapsed 9 s, estimated 1277 s, iters = {MDP: 382}, opt = 425.234
+17.315403812859707 : 425.389783536073
+16.947370081284006 : 428.3262770837998
+> progress 0.741%, elapsed 12 s, estimated 1624 s, iters = {MDP: 496}, opt = 428.326
+> progress 1.003%, elapsed 15 s, estimated 1501 s, iters = {MDP: 647}, opt = 428.326
+> progress 1.508%, elapsed 18 s, estimated 1197 s, iters = {MDP: 789}, opt = 428.326
+21.843993110403083 : 430.8829592250824
+21.70092781521715 : 431.12862740458297
+20.14167943906272 : 436.5254941180949
+19.99194465872033 : 436.84445569201336
+> progress 1.59%, elapsed 21 s, estimated 1325 s, iters = {MDP: 902}, opt = 436.844
+20.462150154609628 : 443.34362993161454
+20.468236417187846 : 443.35479827336525
+> progress 1.685%, elapsed 24 s, estimated 1429 s, iters = {MDP: 1012}, opt = 443.355
+20.150392177285674 : 448.11397606642714
+19.029861336370583 : 450.22683745754904
+> progress 1.954%, elapsed 27 s, estimated 1389 s, iters = {MDP: 1132}, opt = 450.227
+> progress 2.923%, elapsed 30 s, estimated 1032 s, iters = {MDP: 1263}, opt = 450.227
+> progress 3.703%, elapsed 33 s, estimated 896 s, iters = {MDP: 1406}, opt = 450.227
+> progress 4.619%, elapsed 36 s, estimated 783 s, iters = {MDP: 1542}, opt = 450.227
+> progress 6.47%, elapsed 39 s, estimated 606 s, iters = {MDP: 1676}, opt = 450.227
+> progress 6.515%, elapsed 42 s, estimated 648 s, iters = {MDP: 1792}, opt = 450.227
+> progress 6.697%, elapsed 45 s, estimated 675 s, iters = {MDP: 1913}, opt = 450.227
+> progress 7.407%, elapsed 48 s, estimated 651 s, iters = {MDP: 2045}, opt = 450.227
+> progress 8.436%, elapsed 51 s, estimated 607 s, iters = {MDP: 2171}, opt = 450.227
+> progress 8.803%, elapsed 54 s, estimated 616 s, iters = {MDP: 2299}, opt = 450.227
+> progress 9.122%, elapsed 57 s, estimated 628 s, iters = {MDP: 2429}, opt = 450.227
+> progress 9.577%, elapsed 60 s, estimated 630 s, iters = {MDP: 2544}, opt = 450.227
+> progress 9.636%, elapsed 63 s, estimated 657 s, iters = {MDP: 2627}, opt = 450.227
+> progress 11.419%, elapsed 66 s, estimated 581 s, iters = {MDP: 2721}, opt = 450.227
+18.559154858798852 : 464.22953185725464
+18.544762999714646 : 464.4757810254409
+18.60392343786241 : 465.08424820302133
+18.513254197031657 : 466.06775529213894
+> progress 11.762%, elapsed 69 s, estimated 590 s, iters = {MDP: 2825}, opt = 466.068
+18.407428677661745 : 466.4473996559275
+> progress 13.168%, elapsed 72 s, estimated 550 s, iters = {MDP: 2934}, opt = 466.447
+> progress 16.255%, elapsed 75 s, estimated 464 s, iters = {MDP: 3072}, opt = 466.447
+> progress 17.333%, elapsed 78 s, estimated 452 s, iters = {MDP: 3219}, opt = 466.447
+14.120618145264064 : 466.45714858553544
+14.984285669026425 : 467.1993063794625
+> progress 17.669%, elapsed 81 s, estimated 461 s, iters = {MDP: 3368}, opt = 467.199
+17.28259669165879 : 486.4957743763707
+17.377761398346355 : 486.7765240386497
+> progress 17.805%, elapsed 84 s, estimated 474 s, iters = {MDP: 3478}, opt = 486.777
+> progress 19.444%, elapsed 87 s, estimated 450 s, iters = {MDP: 3636}, opt = 486.777
+> progress 24.314%, elapsed 90 s, estimated 372 s, iters = {MDP: 3749}, opt = 486.777
+> progress 28.772%, elapsed 93 s, estimated 325 s, iters = {MDP: 3865}, opt = 486.777
+> progress 29.841%, elapsed 96 s, estimated 323 s, iters = {MDP: 4008}, opt = 486.777
+> progress 30.864%, elapsed 99 s, estimated 322 s, iters = {MDP: 4134}, opt = 486.777
+> progress 35.973%, elapsed 102 s, estimated 285 s, iters = {MDP: 4250}, opt = 486.777
+> progress 39.294%, elapsed 105 s, estimated 268 s, iters = {MDP: 4352}, opt = 486.777
+> progress 39.814%, elapsed 108 s, estimated 272 s, iters = {MDP: 4486}, opt = 486.777
+> progress 42.043%, elapsed 111 s, estimated 265 s, iters = {MDP: 4637}, opt = 486.777
+> progress 55.555%, elapsed 114 s, estimated 206 s, iters = {MDP: 4773}, opt = 486.777
+> progress 61.316%, elapsed 117 s, estimated 191 s, iters = {MDP: 4877}, opt = 486.777
+> progress 63.134%, elapsed 120 s, estimated 191 s, iters = {MDP: 5032}, opt = 486.777
+> progress 63.513%, elapsed 123 s, estimated 194 s, iters = {MDP: 5162}, opt = 486.777
+> progress 67.181%, elapsed 126 s, estimated 188 s, iters = {MDP: 5275}, opt = 486.777
+> progress 70.193%, elapsed 129 s, estimated 184 s, iters = {MDP: 5420}, opt = 486.777
+> progress 70.37%, elapsed 132 s, estimated 188 s, iters = {MDP: 5529}, opt = 486.777
+> progress 72.222%, elapsed 135 s, estimated 188 s, iters = {MDP: 5673}, opt = 486.777
+> progress 78.086%, elapsed 138 s, estimated 177 s, iters = {MDP: 5773}, opt = 486.777
+> progress 81.481%, elapsed 141 s, estimated 174 s, iters = {MDP: 5922}, opt = 486.777
+> progress 82.234%, elapsed 144 s, estimated 176 s, iters = {MDP: 6061}, opt = 486.777
+> progress 84.259%, elapsed 147 s, estimated 175 s, iters = {MDP: 6176}, opt = 486.777
+> progress 93.689%, elapsed 150 s, estimated 161 s, iters = {MDP: 6298}, opt = 486.777
+2024-02-06 17:42:27,742 - synthesizer.py - synthesis finished, printing synthesized assignment below:
+2024-02-06 17:42:27,742 - synthesizer.py - A(NoResponse,0)={'(Query-1)'}, A(NoResponse,1)={'(Query-0)'}, M(NoResponse,0)=1, M(NoResponse,1)=0, A(FastResponse,0)={'(Query-2)'}, A(FastResponse,1)={'(Query-1)'}, M(FastResponse,0)=0, M(FastResponse,1)=1, A(SlowResponse,0)={'(Query-1)'}, A(SlowResponse,1)={'(Query-2)'}, M(SlowResponse,0)=1, M(SlowResponse,1)=0, M(init,0)=1, A(__no_obs__,0)={'(Query-2)'}, A(__no_obs__,1)={'(Query-2)'}, M(__no_obs__,0)=1, M(__no_obs__,1)=0
+2024-02-06 17:42:27,770 - synthesizer.py - double-checking specification satisfiability: 17.377761398346355 : 486.7765240386497
+--------------------
+Synthesis summary:
+constraint 1: R[exp]{"constraint"}<=53 [F "discount_sink"]
+optimality objective: R[exp]{"reward"}max=? [F "discount_sink"] 
+
+method: AR, synthesis time: 151.52 s
+number of holes: 17, family size: 3359232, quotient: 214 states / 1275 actions
+explored: 100 %
+MDP stats: avg MDP size: 211, iterations: 6331
+
+optimum: 486.776524
+--------------------
+2024-02-06 17:42:27,770 - synthesizer_pomdp.py - Synthesizing optimal k=3 controller ...
+2024-02-06 17:42:27,770 - pomdp.py - unfolding POMDP using the following memory allocation vector: [3, 3, 3, 1, 3, 1] ...
+2024-02-06 17:42:27,777 - pomdp.py - constructed quotient MDP having 320 states and 2866 actions.
+2024-02-06 17:42:27,951 - synthesizer.py - synthesis initiated, design space: 847288609443
+> progress 0.457%, elapsed 3 s, estimated 666 s, iters = {MDP: 68}, opt = 486.777
+> progress 0.726%, elapsed 6 s, estimated 834 s, iters = {MDP: 152}, opt = 486.777
+> progress 0.764%, elapsed 9 s, estimated 1189 s, iters = {MDP: 238}, opt = 486.777
+> progress 0.792%, elapsed 12 s, estimated 1528 s, iters = {MDP: 329}, opt = 486.777
+> progress 1.051%, elapsed 15 s, estimated 1438 s, iters = {MDP: 408}, opt = 486.777
+> progress 1.069%, elapsed 18 s, estimated 1697 s, iters = {MDP: 499}, opt = 486.777
+> progress 1.127%, elapsed 21 s, estimated 1875 s, iters = {MDP: 583}, opt = 486.777
+> progress 1.447%, elapsed 24 s, estimated 1671 s, iters = {MDP: 663}, opt = 486.777
+> progress 1.586%, elapsed 27 s, estimated 1716 s, iters = {MDP: 745}, opt = 486.777
+> progress 1.589%, elapsed 30 s, estimated 1902 s, iters = {MDP: 833}, opt = 486.777
+> progress 1.737%, elapsed 33 s, estimated 1914 s, iters = {MDP: 913}, opt = 486.777
+> progress 2.093%, elapsed 36 s, estimated 1734 s, iters = {MDP: 993}, opt = 486.777
+> progress 2.136%, elapsed 39 s, estimated 1840 s, iters = {MDP: 1079}, opt = 486.777
+> progress 2.147%, elapsed 42 s, estimated 1971 s, iters = {MDP: 1169}, opt = 486.777
+> progress 2.362%, elapsed 45 s, estimated 1919 s, iters = {MDP: 1249}, opt = 486.777
+> progress 2.621%, elapsed 48 s, estimated 1844 s, iters = {MDP: 1328}, opt = 486.777
+> progress 2.714%, elapsed 51 s, estimated 1892 s, iters = {MDP: 1412}, opt = 486.777
+> progress 2.719%, elapsed 54 s, estimated 2001 s, iters = {MDP: 1505}, opt = 486.777
+> progress 2.916%, elapsed 57 s, estimated 1969 s, iters = {MDP: 1588}, opt = 486.777
+> progress 2.99%, elapsed 60 s, estimated 2021 s, iters = {MDP: 1673}, opt = 486.777
+> progress 2.999%, elapsed 63 s, estimated 2116 s, iters = {MDP: 1764}, opt = 486.777
+> progress 3.21%, elapsed 66 s, estimated 2071 s, iters = {MDP: 1845}, opt = 486.777
+> progress 3.434%, elapsed 69 s, estimated 2024 s, iters = {MDP: 1921}, opt = 486.777
+> progress 3.718%, elapsed 72 s, estimated 1950 s, iters = {MDP: 1989}, opt = 486.777
+> progress 3.754%, elapsed 75 s, estimated 2011 s, iters = {MDP: 2070}, opt = 486.777
+> progress 3.754%, elapsed 78 s, estimated 2092 s, iters = {MDP: 2225}, opt = 486.777
+> progress 3.754%, elapsed 81 s, estimated 2172 s, iters = {MDP: 2344}, opt = 486.777
+> progress 3.754%, elapsed 84 s, estimated 2252 s, iters = {MDP: 2475}, opt = 486.777
+> progress 3.754%, elapsed 87 s, estimated 2333 s, iters = {MDP: 2598}, opt = 486.777
+> progress 3.754%, elapsed 90 s, estimated 2414 s, iters = {MDP: 2704}, opt = 486.777
+> progress 3.754%, elapsed 93 s, estimated 2494 s, iters = {MDP: 2818}, opt = 486.777
+> progress 3.754%, elapsed 96 s, estimated 2575 s, iters = {MDP: 2916}, opt = 486.777
+> progress 3.754%, elapsed 99 s, estimated 2655 s, iters = {MDP: 3007}, opt = 486.777
+> progress 3.754%, elapsed 102 s, estimated 2736 s, iters = {MDP: 3134}, opt = 486.777
+> progress 3.754%, elapsed 105 s, estimated 2816 s, iters = {MDP: 3264}, opt = 486.777
+> progress 3.754%, elapsed 108 s, estimated 2897 s, iters = {MDP: 3389}, opt = 486.777
+> progress 3.754%, elapsed 111 s, estimated 2977 s, iters = {MDP: 3527}, opt = 486.777
+> progress 3.754%, elapsed 114 s, estimated 3058 s, iters = {MDP: 3636}, opt = 486.777
+> progress 3.754%, elapsed 117 s, estimated 3138 s, iters = {MDP: 3746}, opt = 486.777
+> progress 3.754%, elapsed 120 s, estimated 3218 s, iters = {MDP: 3839}, opt = 486.777
+> progress 3.754%, elapsed 123 s, estimated 3298 s, iters = {MDP: 3927}, opt = 486.777
+> progress 3.754%, elapsed 126 s, estimated 3378 s, iters = {MDP: 4034}, opt = 486.777
+> progress 3.754%, elapsed 129 s, estimated 3458 s, iters = {MDP: 4140}, opt = 486.777
+> progress 3.754%, elapsed 132 s, estimated 3538 s, iters = {MDP: 4236}, opt = 486.777
+> progress 3.754%, elapsed 135 s, estimated 3618 s, iters = {MDP: 4336}, opt = 486.777
+> progress 3.754%, elapsed 138 s, estimated 3699 s, iters = {MDP: 4447}, opt = 486.777
+> progress 3.754%, elapsed 141 s, estimated 3780 s, iters = {MDP: 4558}, opt = 486.777
+> progress 3.754%, elapsed 144 s, estimated 3860 s, iters = {MDP: 4657}, opt = 486.777
+> progress 3.754%, elapsed 147 s, estimated 3940 s, iters = {MDP: 4747}, opt = 486.777
+> progress 3.754%, elapsed 150 s, estimated 4020 s, iters = {MDP: 4847}, opt = 486.777
+> progress 3.754%, elapsed 153 s, estimated 4101 s, iters = {MDP: 4931}, opt = 486.777
+> progress 3.754%, elapsed 157 s, estimated 4182 s, iters = {MDP: 5022}, opt = 486.777
+> progress 3.754%, elapsed 160 s, estimated 4262 s, iters = {MDP: 5110}, opt = 486.777
+> progress 3.754%, elapsed 163 s, estimated 4342 s, iters = {MDP: 5224}, opt = 486.777
+> progress 3.756%, elapsed 166 s, estimated 4420 s, iters = {MDP: 5325}, opt = 486.777
+> progress 3.756%, elapsed 169 s, estimated 4500 s, iters = {MDP: 5418}, opt = 486.777
+> progress 3.756%, elapsed 172 s, estimated 4580 s, iters = {MDP: 5512}, opt = 486.777
+> progress 3.756%, elapsed 175 s, estimated 4661 s, iters = {MDP: 5595}, opt = 486.777
+> progress 3.756%, elapsed 178 s, estimated 4741 s, iters = {MDP: 5668}, opt = 486.777
+> progress 3.756%, elapsed 181 s, estimated 4822 s, iters = {MDP: 5758}, opt = 486.777
+> progress 3.756%, elapsed 184 s, estimated 4902 s, iters = {MDP: 5840}, opt = 486.777
+> progress 3.756%, elapsed 187 s, estimated 4982 s, iters = {MDP: 5931}, opt = 486.777
+> progress 3.756%, elapsed 190 s, estimated 5062 s, iters = {MDP: 6019}, opt = 486.777
+> progress 3.756%, elapsed 193 s, estimated 5143 s, iters = {MDP: 6094}, opt = 486.777
+> progress 3.756%, elapsed 196 s, estimated 5223 s, iters = {MDP: 6183}, opt = 486.777
+> progress 3.756%, elapsed 199 s, estimated 5304 s, iters = {MDP: 6268}, opt = 486.777
+> progress 3.756%, elapsed 202 s, estimated 5386 s, iters = {MDP: 6345}, opt = 486.777
+> progress 3.756%, elapsed 205 s, estimated 5467 s, iters = {MDP: 6444}, opt = 486.777
+> progress 3.756%, elapsed 208 s, estimated 5547 s, iters = {MDP: 6522}, opt = 486.777
+> progress 3.756%, elapsed 211 s, estimated 5627 s, iters = {MDP: 6619}, opt = 486.777
+> progress 3.756%, elapsed 214 s, estimated 5707 s, iters = {MDP: 6718}, opt = 486.777
+> progress 3.756%, elapsed 217 s, estimated 5787 s, iters = {MDP: 6811}, opt = 486.777
+> progress 3.756%, elapsed 220 s, estimated 5868 s, iters = {MDP: 6908}, opt = 486.777
+> progress 3.756%, elapsed 223 s, estimated 5948 s, iters = {MDP: 7000}, opt = 486.777
+> progress 3.756%, elapsed 226 s, estimated 6029 s, iters = {MDP: 7060}, opt = 486.777
+> progress 3.756%, elapsed 229 s, estimated 6109 s, iters = {MDP: 7144}, opt = 486.777
+> progress 3.756%, elapsed 232 s, estimated 6190 s, iters = {MDP: 7219}, opt = 486.777
+> progress 3.756%, elapsed 235 s, estimated 6270 s, iters = {MDP: 7306}, opt = 486.777
+> progress 3.756%, elapsed 238 s, estimated 6350 s, iters = {MDP: 7374}, opt = 486.777
+> progress 3.756%, elapsed 241 s, estimated 6431 s, iters = {MDP: 7450}, opt = 486.777
+> progress 3.756%, elapsed 244 s, estimated 6512 s, iters = {MDP: 7516}, opt = 486.777
+> progress 3.756%, elapsed 247 s, estimated 6592 s, iters = {MDP: 7609}, opt = 486.777
+> progress 3.756%, elapsed 250 s, estimated 6673 s, iters = {MDP: 7703}, opt = 486.777
+> progress 3.756%, elapsed 253 s, estimated 6753 s, iters = {MDP: 7785}, opt = 486.777
+> progress 3.756%, elapsed 256 s, estimated 6834 s, iters = {MDP: 7887}, opt = 486.777
+> progress 3.756%, elapsed 259 s, estimated 6914 s, iters = {MDP: 7975}, opt = 486.777
+> progress 3.756%, elapsed 262 s, estimated 6994 s, iters = {MDP: 8061}, opt = 486.777
+> progress 3.756%, elapsed 265 s, estimated 7074 s, iters = {MDP: 8141}, opt = 486.777
+> progress 3.756%, elapsed 268 s, estimated 7154 s, iters = {MDP: 8266}, opt = 486.777
+> progress 3.756%, elapsed 271 s, estimated 7234 s (2 hours), iters = {MDP: 8363}, opt = 486.777
+> progress 3.757%, elapsed 274 s, estimated 7312 s (2 hours), iters = {MDP: 8443}, opt = 486.777
+> progress 3.757%, elapsed 277 s, estimated 7392 s (2 hours), iters = {MDP: 8517}, opt = 486.777
+> progress 3.757%, elapsed 280 s, estimated 7473 s (2 hours), iters = {MDP: 8614}, opt = 486.777
+> progress 3.757%, elapsed 283 s, estimated 7553 s (2 hours), iters = {MDP: 8708}, opt = 486.777
+> progress 3.757%, elapsed 286 s, estimated 7633 s (2 hours), iters = {MDP: 8800}, opt = 486.777
+> progress 3.757%, elapsed 289 s, estimated 7713 s (2 hours), iters = {MDP: 8884}, opt = 486.777
+> progress 3.757%, elapsed 292 s, estimated 7793 s (2 hours), iters = {MDP: 8980}, opt = 486.777
+> progress 3.757%, elapsed 295 s, estimated 7873 s (2 hours), iters = {MDP: 9069}, opt = 486.777
+> progress 3.757%, elapsed 298 s, estimated 7953 s (2 hours), iters = {MDP: 9169}, opt = 486.777
+> progress 3.757%, elapsed 301 s, estimated 8033 s (2 hours), iters = {MDP: 9255}, opt = 486.777
+> progress 3.757%, elapsed 304 s, estimated 8113 s (2 hours), iters = {MDP: 9345}, opt = 486.777
+> progress 3.757%, elapsed 307 s, estimated 8193 s (2 hours), iters = {MDP: 9437}, opt = 486.777
+> progress 3.757%, elapsed 310 s, estimated 8274 s (2 hours), iters = {MDP: 9529}, opt = 486.777
+> progress 3.757%, elapsed 313 s, estimated 8354 s (2 hours), iters = {MDP: 9622}, opt = 486.777
+> progress 3.757%, elapsed 316 s, estimated 8435 s (2 hours), iters = {MDP: 9714}, opt = 486.777
+> progress 3.757%, elapsed 319 s, estimated 8515 s (2 hours), iters = {MDP: 9813}, opt = 486.777
+> progress 3.757%, elapsed 323 s, estimated 8595 s (2 hours), iters = {MDP: 9914}, opt = 486.777
+> progress 3.757%, elapsed 326 s, estimated 8676 s (2 hours), iters = {MDP: 10019}, opt = 486.777
+> progress 3.757%, elapsed 329 s, estimated 8756 s (2 hours), iters = {MDP: 10118}, opt = 486.777
+> progress 3.757%, elapsed 332 s, estimated 8837 s (2 hours), iters = {MDP: 10217}, opt = 486.777
+> progress 3.757%, elapsed 335 s, estimated 8917 s (2 hours), iters = {MDP: 10333}, opt = 486.777
+> progress 3.757%, elapsed 338 s, estimated 8997 s (2 hours), iters = {MDP: 10440}, opt = 486.777
+> progress 3.757%, elapsed 341 s, estimated 9078 s (2 hours), iters = {MDP: 10540}, opt = 486.777
+> progress 3.757%, elapsed 344 s, estimated 9158 s (2 hours), iters = {MDP: 10647}, opt = 486.777
+> progress 3.757%, elapsed 347 s, estimated 9239 s (2 hours), iters = {MDP: 10742}, opt = 486.777
+> progress 3.757%, elapsed 350 s, estimated 9319 s (2 hours), iters = {MDP: 10839}, opt = 486.777
+> progress 3.757%, elapsed 353 s, estimated 9399 s (2 hours), iters = {MDP: 10937}, opt = 486.777
+> progress 3.757%, elapsed 356 s, estimated 9479 s (2 hours), iters = {MDP: 11025}, opt = 486.777
+> progress 3.757%, elapsed 359 s, estimated 9559 s (2 hours), iters = {MDP: 11120}, opt = 486.777
+> progress 3.757%, elapsed 362 s, estimated 9639 s (2 hours), iters = {MDP: 11225}, opt = 486.777
+> progress 3.757%, elapsed 365 s, estimated 9719 s (2 hours), iters = {MDP: 11326}, opt = 486.777
+> progress 3.757%, elapsed 368 s, estimated 9799 s (2 hours), iters = {MDP: 11417}, opt = 486.777
+> progress 3.757%, elapsed 371 s, estimated 9880 s (2 hours), iters = {MDP: 11515}, opt = 486.777
+15.219510420914224 : 489.52479402199464
+14.69422824606606 : 492.4104025645447
+> progress 3.757%, elapsed 374 s, estimated 9961 s (2 hours), iters = {MDP: 11595}, opt = 492.41
+14.653143730409887 : 492.5143236827685
+> progress 3.757%, elapsed 377 s, estimated 10041 s (2 hours), iters = {MDP: 11675}, opt = 492.514
+> progress 3.757%, elapsed 380 s, estimated 10122 s (2 hours), iters = {MDP: 11756}, opt = 492.514
+> progress 3.757%, elapsed 383 s, estimated 10202 s (2 hours), iters = {MDP: 11836}, opt = 492.514
+> progress 3.757%, elapsed 386 s, estimated 10282 s (2 hours), iters = {MDP: 11916}, opt = 492.514
+> progress 3.757%, elapsed 389 s, estimated 10363 s (2 hours), iters = {MDP: 11998}, opt = 492.514
+> progress 3.757%, elapsed 392 s, estimated 10444 s (2 hours), iters = {MDP: 12079}, opt = 492.514
+> progress 3.757%, elapsed 395 s, estimated 10524 s (2 hours), iters = {MDP: 12159}, opt = 492.514
+> progress 3.757%, elapsed 398 s, estimated 10604 s (2 hours), iters = {MDP: 12239}, opt = 492.514
+> progress 3.757%, elapsed 401 s, estimated 10684 s (2 hours), iters = {MDP: 12318}, opt = 492.514
+> progress 3.757%, elapsed 404 s, estimated 10765 s (2 hours), iters = {MDP: 12398}, opt = 492.514
+> progress 3.757%, elapsed 407 s, estimated 10845 s (3 hours), iters = {MDP: 12477}, opt = 492.514
+> progress 3.757%, elapsed 410 s, estimated 10925 s (3 hours), iters = {MDP: 12560}, opt = 492.514
+> progress 3.757%, elapsed 413 s, estimated 11006 s (3 hours), iters = {MDP: 12638}, opt = 492.514
+14.33952314310978 : 492.5315141598474
+> progress 3.757%, elapsed 416 s, estimated 11086 s (3 hours), iters = {MDP: 12717}, opt = 492.532
+> progress 3.757%, elapsed 419 s, estimated 11166 s (3 hours), iters = {MDP: 12796}, opt = 492.532
+> progress 3.757%, elapsed 422 s, estimated 11246 s (3 hours), iters = {MDP: 12878}, opt = 492.532
+> progress 3.757%, elapsed 425 s, estimated 11327 s (3 hours), iters = {MDP: 12957}, opt = 492.532
+> progress 3.757%, elapsed 428 s, estimated 11407 s (3 hours), iters = {MDP: 13036}, opt = 492.532
+> progress 3.757%, elapsed 431 s, estimated 11488 s (3 hours), iters = {MDP: 13112}, opt = 492.532
+> progress 3.757%, elapsed 434 s, estimated 11568 s (3 hours), iters = {MDP: 13195}, opt = 492.532
+> progress 3.757%, elapsed 437 s, estimated 11648 s (3 hours), iters = {MDP: 13277}, opt = 492.532
+> progress 3.757%, elapsed 440 s, estimated 11728 s (3 hours), iters = {MDP: 13355}, opt = 492.532
+> progress 3.757%, elapsed 443 s, estimated 11809 s (3 hours), iters = {MDP: 13433}, opt = 492.532
+> progress 3.757%, elapsed 446 s, estimated 11890 s (3 hours), iters = {MDP: 13502}, opt = 492.532
+> progress 3.757%, elapsed 449 s, estimated 11971 s (3 hours), iters = {MDP: 13581}, opt = 492.532
+> progress 3.757%, elapsed 452 s, estimated 12051 s (3 hours), iters = {MDP: 13659}, opt = 492.532
+14.230462359524113 : 492.5902066943541
+> progress 3.757%, elapsed 455 s, estimated 12132 s (3 hours), iters = {MDP: 13732}, opt = 492.59
+14.190294113052278 : 492.7947674728597
+> progress 3.757%, elapsed 458 s, estimated 12212 s (3 hours), iters = {MDP: 13805}, opt = 492.795
+> progress 3.757%, elapsed 461 s, estimated 12293 s (3 hours), iters = {MDP: 13879}, opt = 492.795
+> progress 3.757%, elapsed 465 s, estimated 12374 s (3 hours), iters = {MDP: 13952}, opt = 492.795
+> progress 3.757%, elapsed 468 s, estimated 12454 s (3 hours), iters = {MDP: 14024}, opt = 492.795
+> progress 3.757%, elapsed 471 s, estimated 12534 s (3 hours), iters = {MDP: 14097}, opt = 492.795
+> progress 3.757%, elapsed 474 s, estimated 12615 s (3 hours), iters = {MDP: 14169}, opt = 492.795
+> progress 3.757%, elapsed 477 s, estimated 12695 s (3 hours), iters = {MDP: 14243}, opt = 492.795
+> progress 3.757%, elapsed 480 s, estimated 12776 s (3 hours), iters = {MDP: 14314}, opt = 492.795
+> progress 3.757%, elapsed 483 s, estimated 12856 s (3 hours), iters = {MDP: 14373}, opt = 492.795
+> progress 3.757%, elapsed 486 s, estimated 12937 s (3 hours), iters = {MDP: 14434}, opt = 492.795
+> progress 3.757%, elapsed 489 s, estimated 13016 s (3 hours), iters = {MDP: 14500}, opt = 492.795
+> progress 3.757%, elapsed 492 s, estimated 13097 s (3 hours), iters = {MDP: 14561}, opt = 492.795
+> progress 3.757%, elapsed 495 s, estimated 13178 s (3 hours), iters = {MDP: 14625}, opt = 492.795
+> progress 3.757%, elapsed 498 s, estimated 13259 s (3 hours), iters = {MDP: 14686}, opt = 492.795
+> progress 3.757%, elapsed 501 s, estimated 13339 s (3 hours), iters = {MDP: 14761}, opt = 492.795
+> progress 3.757%, elapsed 504 s, estimated 13420 s (3 hours), iters = {MDP: 14828}, opt = 492.795
+> progress 3.757%, elapsed 507 s, estimated 13501 s (3 hours), iters = {MDP: 14899}, opt = 492.795
+> progress 3.757%, elapsed 510 s, estimated 13582 s (3 hours), iters = {MDP: 14970}, opt = 492.795
+> progress 3.757%, elapsed 513 s, estimated 13662 s (3 hours), iters = {MDP: 15041}, opt = 492.795
+> progress 3.757%, elapsed 516 s, estimated 13742 s (3 hours), iters = {MDP: 15122}, opt = 492.795
+> progress 3.757%, elapsed 519 s, estimated 13822 s (3 hours), iters = {MDP: 15209}, opt = 492.795
+> progress 3.757%, elapsed 522 s, estimated 13902 s (3 hours), iters = {MDP: 15292}, opt = 492.795
+> progress 3.757%, elapsed 525 s, estimated 13983 s (3 hours), iters = {MDP: 15368}, opt = 492.795
+> progress 3.757%, elapsed 528 s, estimated 14063 s (3 hours), iters = {MDP: 15445}, opt = 492.795
+> progress 3.757%, elapsed 531 s, estimated 14144 s (3 hours), iters = {MDP: 15527}, opt = 492.795
+> progress 3.757%, elapsed 534 s, estimated 14225 s (3 hours), iters = {MDP: 15604}, opt = 492.795
+> progress 3.757%, elapsed 537 s, estimated 14305 s (3 hours), iters = {MDP: 15684}, opt = 492.795
+> progress 3.757%, elapsed 540 s, estimated 14385 s (3 hours), iters = {MDP: 15761}, opt = 492.795
+> progress 3.757%, elapsed 543 s, estimated 14466 s (4 hours), iters = {MDP: 15837}, opt = 492.795
+> progress 3.757%, elapsed 546 s, estimated 14546 s (4 hours), iters = {MDP: 15914}, opt = 492.795
+> progress 3.757%, elapsed 549 s, estimated 14626 s (4 hours), iters = {MDP: 15989}, opt = 492.795
+> progress 3.757%, elapsed 552 s, estimated 14706 s (4 hours), iters = {MDP: 16062}, opt = 492.795
+> progress 3.757%, elapsed 555 s, estimated 14787 s (4 hours), iters = {MDP: 16140}, opt = 492.795
+> progress 3.757%, elapsed 558 s, estimated 14867 s (4 hours), iters = {MDP: 16214}, opt = 492.795
+> progress 3.757%, elapsed 561 s, estimated 14947 s (4 hours), iters = {MDP: 16288}, opt = 492.795
+> progress 3.757%, elapsed 564 s, estimated 15027 s (4 hours), iters = {MDP: 16362}, opt = 492.795
+> progress 3.757%, elapsed 567 s, estimated 15107 s (4 hours), iters = {MDP: 16435}, opt = 492.795
+> progress 3.757%, elapsed 570 s, estimated 15188 s (4 hours), iters = {MDP: 16510}, opt = 492.795
+> progress 3.757%, elapsed 573 s, estimated 15268 s (4 hours), iters = {MDP: 16585}, opt = 492.795
+> progress 3.757%, elapsed 576 s, estimated 15348 s (4 hours), iters = {MDP: 16676}, opt = 492.795
+> progress 3.757%, elapsed 579 s, estimated 15428 s (4 hours), iters = {MDP: 16773}, opt = 492.795
+> progress 3.757%, elapsed 582 s, estimated 15508 s (4 hours), iters = {MDP: 16879}, opt = 492.795
+> progress 3.757%, elapsed 585 s, estimated 15588 s (4 hours), iters = {MDP: 16991}, opt = 492.795
+> progress 3.757%, elapsed 588 s, estimated 15669 s (4 hours), iters = {MDP: 17090}, opt = 492.795
+> progress 3.757%, elapsed 591 s, estimated 15749 s (4 hours), iters = {MDP: 17199}, opt = 492.795
+> progress 3.757%, elapsed 594 s, estimated 15829 s (4 hours), iters = {MDP: 17318}, opt = 492.795
+> progress 3.757%, elapsed 597 s, estimated 15910 s (4 hours), iters = {MDP: 17452}, opt = 492.795
+> progress 3.757%, elapsed 600 s, estimated 15990 s (4 hours), iters = {MDP: 17604}, opt = 492.795
+14.304152022597409 : 492.8360401642692
+> progress 3.757%, elapsed 603 s, estimated 16071 s (4 hours), iters = {MDP: 17674}, opt = 492.836
+> progress 3.757%, elapsed 606 s, estimated 16151 s (4 hours), iters = {MDP: 17741}, opt = 492.836
+> progress 3.757%, elapsed 609 s, estimated 16231 s (4 hours), iters = {MDP: 17808}, opt = 492.836
+> progress 3.757%, elapsed 613 s, estimated 16312 s (4 hours), iters = {MDP: 17879}, opt = 492.836
+> progress 3.757%, elapsed 616 s, estimated 16393 s (4 hours), iters = {MDP: 17946}, opt = 492.836
+> progress 3.757%, elapsed 619 s, estimated 16474 s (4 hours), iters = {MDP: 18010}, opt = 492.836
+> progress 3.757%, elapsed 622 s, estimated 16556 s (4 hours), iters = {MDP: 18059}, opt = 492.836
+> progress 3.757%, elapsed 625 s, estimated 16636 s (4 hours), iters = {MDP: 18109}, opt = 492.836
+> progress 3.757%, elapsed 628 s, estimated 16716 s (4 hours), iters = {MDP: 18168}, opt = 492.836
+> progress 3.757%, elapsed 631 s, estimated 16797 s (4 hours), iters = {MDP: 18235}, opt = 492.836
+> progress 3.757%, elapsed 634 s, estimated 16877 s (4 hours), iters = {MDP: 18306}, opt = 492.836
+> progress 3.757%, elapsed 637 s, estimated 16958 s (4 hours), iters = {MDP: 18377}, opt = 492.836
+> progress 3.757%, elapsed 640 s, estimated 17040 s (4 hours), iters = {MDP: 18446}, opt = 492.836
+> progress 3.757%, elapsed 643 s, estimated 17120 s (4 hours), iters = {MDP: 18516}, opt = 492.836
+> progress 3.757%, elapsed 646 s, estimated 17201 s (4 hours), iters = {MDP: 18590}, opt = 492.836
+> progress 3.757%, elapsed 649 s, estimated 17281 s (4 hours), iters = {MDP: 18665}, opt = 492.836
+> progress 3.757%, elapsed 652 s, estimated 17361 s (4 hours), iters = {MDP: 18734}, opt = 492.836
+> progress 3.757%, elapsed 655 s, estimated 17442 s (4 hours), iters = {MDP: 18815}, opt = 492.836
+> progress 3.757%, elapsed 658 s, estimated 17522 s (4 hours), iters = {MDP: 18894}, opt = 492.836
+> progress 3.757%, elapsed 661 s, estimated 17602 s (4 hours), iters = {MDP: 18978}, opt = 492.836
+> progress 3.757%, elapsed 664 s, estimated 17682 s (4 hours), iters = {MDP: 19058}, opt = 492.836
+> progress 3.757%, elapsed 667 s, estimated 17762 s (4 hours), iters = {MDP: 19147}, opt = 492.836
+> progress 3.757%, elapsed 670 s, estimated 17842 s (4 hours), iters = {MDP: 19237}, opt = 492.836
+> progress 3.757%, elapsed 673 s, estimated 17923 s (4 hours), iters = {MDP: 19318}, opt = 492.836
+> progress 3.757%, elapsed 676 s, estimated 18004 s (5 hours), iters = {MDP: 19410}, opt = 492.836
+> progress 3.757%, elapsed 679 s, estimated 18084 s (5 hours), iters = {MDP: 19499}, opt = 492.836
+> progress 3.759%, elapsed 682 s, estimated 18157 s (5 hours), iters = {MDP: 19591}, opt = 492.836
+> progress 3.761%, elapsed 685 s, estimated 18228 s (5 hours), iters = {MDP: 19671}, opt = 492.836
+16.433477352046232 : 493.235657501167
+> progress 3.761%, elapsed 688 s, estimated 18308 s (5 hours), iters = {MDP: 19752}, opt = 493.236
+> progress 3.761%, elapsed 691 s, estimated 18388 s (5 hours), iters = {MDP: 19861}, opt = 493.236
+> progress 3.761%, elapsed 694 s, estimated 18469 s (5 hours), iters = {MDP: 19973}, opt = 493.236
+> progress 3.761%, elapsed 697 s, estimated 18548 s (5 hours), iters = {MDP: 20085}, opt = 493.236
+> progress 3.761%, elapsed 700 s, estimated 18629 s (5 hours), iters = {MDP: 20190}, opt = 493.236
+> progress 3.761%, elapsed 703 s, estimated 18709 s (5 hours), iters = {MDP: 20313}, opt = 493.236
+> progress 3.761%, elapsed 706 s, estimated 18790 s (5 hours), iters = {MDP: 20424}, opt = 493.236
+> progress 3.761%, elapsed 709 s, estimated 18871 s (5 hours), iters = {MDP: 20516}, opt = 493.236
+> progress 3.761%, elapsed 712 s, estimated 18951 s (5 hours), iters = {MDP: 20615}, opt = 493.236
+> progress 3.761%, elapsed 715 s, estimated 19032 s (5 hours), iters = {MDP: 20725}, opt = 493.236
+> progress 3.761%, elapsed 718 s, estimated 19112 s (5 hours), iters = {MDP: 20840}, opt = 493.236
+> progress 3.761%, elapsed 721 s, estimated 19192 s (5 hours), iters = {MDP: 20941}, opt = 493.236
+> progress 3.761%, elapsed 724 s, estimated 19272 s (5 hours), iters = {MDP: 21065}, opt = 493.236
+> progress 3.761%, elapsed 727 s, estimated 19352 s (5 hours), iters = {MDP: 21173}, opt = 493.236
+> progress 3.761%, elapsed 730 s, estimated 19432 s (5 hours), iters = {MDP: 21277}, opt = 493.236
+> progress 3.761%, elapsed 734 s, estimated 19513 s (5 hours), iters = {MDP: 21404}, opt = 493.236
+> progress 3.761%, elapsed 737 s, estimated 19593 s (5 hours), iters = {MDP: 21503}, opt = 493.236
+> progress 3.761%, elapsed 740 s, estimated 19673 s (5 hours), iters = {MDP: 21599}, opt = 493.236
+> progress 3.761%, elapsed 743 s, estimated 19753 s (5 hours), iters = {MDP: 21691}, opt = 493.236
+> progress 3.761%, elapsed 746 s, estimated 19834 s (5 hours), iters = {MDP: 21787}, opt = 493.236
+> progress 3.761%, elapsed 749 s, estimated 19914 s (5 hours), iters = {MDP: 21882}, opt = 493.236
+> progress 3.761%, elapsed 752 s, estimated 19994 s (5 hours), iters = {MDP: 21984}, opt = 493.236
+> progress 3.761%, elapsed 755 s, estimated 20075 s (5 hours), iters = {MDP: 22059}, opt = 493.236
+> progress 3.761%, elapsed 758 s, estimated 20155 s (5 hours), iters = {MDP: 22131}, opt = 493.236
+> progress 3.761%, elapsed 761 s, estimated 20236 s (5 hours), iters = {MDP: 22227}, opt = 493.236
+> progress 3.761%, elapsed 764 s, estimated 20316 s (5 hours), iters = {MDP: 22332}, opt = 493.236
+> progress 3.773%, elapsed 767 s, estimated 20335 s (5 hours), iters = {MDP: 22437}, opt = 493.236
+> progress 3.779%, elapsed 770 s, estimated 20382 s (5 hours), iters = {MDP: 22520}, opt = 493.236
+> progress 3.782%, elapsed 773 s, estimated 20443 s (5 hours), iters = {MDP: 22604}, opt = 493.236
+15.29953057999868 : 495.74444351490047
+15.140211786316003 : 497.8244618933751
+> progress 3.785%, elapsed 776 s, estimated 20510 s (5 hours), iters = {MDP: 22687}, opt = 497.824
+> progress 3.785%, elapsed 779 s, estimated 20590 s (5 hours), iters = {MDP: 22776}, opt = 497.824
+> progress 3.785%, elapsed 782 s, estimated 20669 s (5 hours), iters = {MDP: 22841}, opt = 497.824
+> progress 3.785%, elapsed 785 s, estimated 20749 s (5 hours), iters = {MDP: 22926}, opt = 497.824
+> progress 3.785%, elapsed 788 s, estimated 20829 s (5 hours), iters = {MDP: 23010}, opt = 497.824
+> progress 3.785%, elapsed 791 s, estimated 20909 s (5 hours), iters = {MDP: 23097}, opt = 497.824
+> progress 3.785%, elapsed 794 s, estimated 20989 s (5 hours), iters = {MDP: 23180}, opt = 497.824
+> progress 3.785%, elapsed 797 s, estimated 21069 s (5 hours), iters = {MDP: 23258}, opt = 497.824
+> progress 3.785%, elapsed 800 s, estimated 21149 s (5 hours), iters = {MDP: 23331}, opt = 497.824
+> progress 3.785%, elapsed 803 s, estimated 21229 s (5 hours), iters = {MDP: 23402}, opt = 497.824
+> progress 3.785%, elapsed 806 s, estimated 21309 s (5 hours), iters = {MDP: 23478}, opt = 497.824
+> progress 3.785%, elapsed 809 s, estimated 21389 s (5 hours), iters = {MDP: 23551}, opt = 497.824
+> progress 3.785%, elapsed 812 s, estimated 21468 s (5 hours), iters = {MDP: 23624}, opt = 497.824
+15.203622794414233 : 500.32043163418217
+15.065840217852118 : 502.3017470229173
+> progress 3.785%, elapsed 815 s, estimated 21545 s (5 hours), iters = {MDP: 23716}, opt = 502.302
+> progress 3.785%, elapsed 818 s, estimated 21625 s (6 hours), iters = {MDP: 23790}, opt = 502.302
+> progress 3.785%, elapsed 821 s, estimated 21704 s (6 hours), iters = {MDP: 23865}, opt = 502.302
+> progress 3.785%, elapsed 824 s, estimated 21785 s (6 hours), iters = {MDP: 23941}, opt = 502.302
+> progress 3.785%, elapsed 827 s, estimated 21865 s (6 hours), iters = {MDP: 24017}, opt = 502.302
+> progress 3.785%, elapsed 830 s, estimated 21945 s (6 hours), iters = {MDP: 24092}, opt = 502.302
+> progress 3.785%, elapsed 833 s, estimated 22025 s (6 hours), iters = {MDP: 24167}, opt = 502.302
+> progress 3.785%, elapsed 836 s, estimated 22104 s (6 hours), iters = {MDP: 24242}, opt = 502.302
+> progress 3.785%, elapsed 839 s, estimated 22184 s (6 hours), iters = {MDP: 24315}, opt = 502.302
+> progress 3.785%, elapsed 842 s, estimated 22264 s (6 hours), iters = {MDP: 24393}, opt = 502.302
+> progress 3.785%, elapsed 845 s, estimated 22344 s (6 hours), iters = {MDP: 24466}, opt = 502.302
+> progress 3.785%, elapsed 848 s, estimated 22424 s (6 hours), iters = {MDP: 24537}, opt = 502.302
+> progress 3.785%, elapsed 851 s, estimated 22504 s (6 hours), iters = {MDP: 24612}, opt = 502.302
+> progress 3.785%, elapsed 855 s, estimated 22584 s (6 hours), iters = {MDP: 24693}, opt = 502.302
+> progress 3.785%, elapsed 858 s, estimated 22664 s (6 hours), iters = {MDP: 24771}, opt = 502.302
+> progress 3.786%, elapsed 861 s, estimated 22739 s (6 hours), iters = {MDP: 24868}, opt = 502.302
+> progress 3.8%, elapsed 864 s, estimated 22738 s (6 hours), iters = {MDP: 24951}, opt = 502.302
+> progress 3.813%, elapsed 867 s, estimated 22737 s (6 hours), iters = {MDP: 25033}, opt = 502.302
+> progress 3.821%, elapsed 870 s, estimated 22770 s (6 hours), iters = {MDP: 25115}, opt = 502.302
+> progress 3.831%, elapsed 873 s, estimated 22789 s (6 hours), iters = {MDP: 25195}, opt = 502.302
+> progress 3.836%, elapsed 876 s, estimated 22839 s (6 hours), iters = {MDP: 25276}, opt = 502.302
+> progress 3.849%, elapsed 879 s, estimated 22839 s (6 hours), iters = {MDP: 25353}, opt = 502.302
+> progress 3.874%, elapsed 882 s, estimated 22771 s (6 hours), iters = {MDP: 25435}, opt = 502.302
+> progress 3.877%, elapsed 885 s, estimated 22827 s (6 hours), iters = {MDP: 25532}, opt = 502.302
+> progress 3.878%, elapsed 888 s, estimated 22904 s (6 hours), iters = {MDP: 25621}, opt = 502.302
+> progress 3.878%, elapsed 891 s, estimated 22981 s (6 hours), iters = {MDP: 25701}, opt = 502.302
+> progress 3.878%, elapsed 894 s, estimated 23059 s (6 hours), iters = {MDP: 25781}, opt = 502.302
+> progress 3.878%, elapsed 897 s, estimated 23137 s (6 hours), iters = {MDP: 25856}, opt = 502.302
+> progress 3.878%, elapsed 900 s, estimated 23216 s (6 hours), iters = {MDP: 25934}, opt = 502.302
+> progress 3.878%, elapsed 903 s, estimated 23293 s (6 hours), iters = {MDP: 26010}, opt = 502.302
+> progress 3.878%, elapsed 906 s, estimated 23371 s (6 hours), iters = {MDP: 26084}, opt = 502.302
+> progress 3.878%, elapsed 909 s, estimated 23449 s (6 hours), iters = {MDP: 26159}, opt = 502.302
+> progress 3.878%, elapsed 912 s, estimated 23527 s (6 hours), iters = {MDP: 26236}, opt = 502.302
+> progress 3.878%, elapsed 915 s, estimated 23605 s (6 hours), iters = {MDP: 26310}, opt = 502.302
+> progress 3.878%, elapsed 918 s, estimated 23682 s (6 hours), iters = {MDP: 26381}, opt = 502.302
+> progress 3.878%, elapsed 921 s, estimated 23760 s (6 hours), iters = {MDP: 26459}, opt = 502.302
+> progress 3.878%, elapsed 924 s, estimated 23838 s (6 hours), iters = {MDP: 26538}, opt = 502.302
+> progress 3.878%, elapsed 927 s, estimated 23915 s (6 hours), iters = {MDP: 26613}, opt = 502.302
+> progress 3.88%, elapsed 930 s, estimated 23979 s (6 hours), iters = {MDP: 26696}, opt = 502.302
+> progress 3.895%, elapsed 933 s, estimated 23966 s (6 hours), iters = {MDP: 26801}, opt = 502.302
+> progress 3.895%, elapsed 936 s, estimated 24044 s (6 hours), iters = {MDP: 26986}, opt = 502.302
+> progress 3.895%, elapsed 939 s, estimated 24121 s (6 hours), iters = {MDP: 27142}, opt = 502.302
+> progress 3.895%, elapsed 942 s, estimated 24198 s (6 hours), iters = {MDP: 27335}, opt = 502.302
+> progress 3.895%, elapsed 945 s, estimated 24275 s (6 hours), iters = {MDP: 27471}, opt = 502.302
+> progress 3.895%, elapsed 948 s, estimated 24353 s (6 hours), iters = {MDP: 27616}, opt = 502.302
+> progress 3.895%, elapsed 951 s, estimated 24430 s (6 hours), iters = {MDP: 27751}, opt = 502.302
+> progress 3.895%, elapsed 954 s, estimated 24507 s (6 hours), iters = {MDP: 27926}, opt = 502.302
+> progress 3.895%, elapsed 957 s, estimated 24584 s (6 hours), iters = {MDP: 28091}, opt = 502.302
+> progress 3.895%, elapsed 960 s, estimated 24662 s (6 hours), iters = {MDP: 28271}, opt = 502.302
+> progress 3.898%, elapsed 963 s, estimated 24719 s (6 hours), iters = {MDP: 28371}, opt = 502.302
+> progress 3.898%, elapsed 966 s, estimated 24796 s (6 hours), iters = {MDP: 28492}, opt = 502.302
+> progress 3.898%, elapsed 969 s, estimated 24873 s (6 hours), iters = {MDP: 28592}, opt = 502.302
+> progress 3.898%, elapsed 972 s, estimated 24950 s (6 hours), iters = {MDP: 28704}, opt = 502.302
+> progress 3.898%, elapsed 975 s, estimated 25029 s (6 hours), iters = {MDP: 28793}, opt = 502.302
+> progress 3.898%, elapsed 978 s, estimated 25107 s (6 hours), iters = {MDP: 28880}, opt = 502.302
+> progress 3.898%, elapsed 981 s, estimated 25184 s (6 hours), iters = {MDP: 28999}, opt = 502.302
+> progress 3.898%, elapsed 984 s, estimated 25261 s (7 hours), iters = {MDP: 29139}, opt = 502.302
+> progress 3.898%, elapsed 987 s, estimated 25339 s (7 hours), iters = {MDP: 29242}, opt = 502.302
+> progress 3.898%, elapsed 990 s, estimated 25416 s (7 hours), iters = {MDP: 29352}, opt = 502.302
+> progress 3.898%, elapsed 993 s, estimated 25494 s (7 hours), iters = {MDP: 29455}, opt = 502.302
+> progress 3.898%, elapsed 996 s, estimated 25572 s (7 hours), iters = {MDP: 29549}, opt = 502.302
+> progress 3.898%, elapsed 999 s, estimated 25650 s (7 hours), iters = {MDP: 29682}, opt = 502.302
+> progress 3.898%, elapsed 1003 s, estimated 25727 s (7 hours), iters = {MDP: 29834}, opt = 502.302
+> progress 3.898%, elapsed 1006 s, estimated 25805 s (7 hours), iters = {MDP: 29984}, opt = 502.302
+> progress 3.898%, elapsed 1009 s, estimated 25882 s (7 hours), iters = {MDP: 30123}, opt = 502.302
+> progress 3.898%, elapsed 1012 s, estimated 25959 s (7 hours), iters = {MDP: 30294}, opt = 502.302
+> progress 3.901%, elapsed 1015 s, estimated 26014 s (7 hours), iters = {MDP: 30429}, opt = 502.302
+> progress 3.922%, elapsed 1018 s, estimated 25954 s (7 hours), iters = {MDP: 30515}, opt = 502.302
+> progress 3.934%, elapsed 1021 s, estimated 25954 s (7 hours), iters = {MDP: 30599}, opt = 502.302
+> progress 3.939%, elapsed 1024 s, estimated 25996 s (7 hours), iters = {MDP: 30688}, opt = 502.302
+> progress 3.941%, elapsed 1027 s, estimated 26056 s (7 hours), iters = {MDP: 30776}, opt = 502.302
+> progress 3.944%, elapsed 1030 s, estimated 26117 s (7 hours), iters = {MDP: 30864}, opt = 502.302
+15.671897258747046 : 508.32745438685805
+15.652890971267924 : 508.5665170988226
+15.6228714221965 : 508.93740114650325
+> progress 3.944%, elapsed 1033 s, estimated 26193 s (7 hours), iters = {MDP: 30941}, opt = 508.937
+> progress 3.944%, elapsed 1036 s, estimated 26270 s (7 hours), iters = {MDP: 31017}, opt = 508.937
+> progress 3.944%, elapsed 1039 s, estimated 26346 s (7 hours), iters = {MDP: 31097}, opt = 508.937
+> progress 3.944%, elapsed 1042 s, estimated 26423 s (7 hours), iters = {MDP: 31171}, opt = 508.937
+> progress 3.944%, elapsed 1045 s, estimated 26500 s (7 hours), iters = {MDP: 31248}, opt = 508.937
+> progress 3.944%, elapsed 1048 s, estimated 26576 s (7 hours), iters = {MDP: 31329}, opt = 508.937
+> progress 3.944%, elapsed 1051 s, estimated 26652 s (7 hours), iters = {MDP: 31412}, opt = 508.937
+> progress 3.944%, elapsed 1054 s, estimated 26730 s (7 hours), iters = {MDP: 31493}, opt = 508.937
+> progress 3.944%, elapsed 1057 s, estimated 26806 s (7 hours), iters = {MDP: 31572}, opt = 508.937
+> progress 3.944%, elapsed 1060 s, estimated 26883 s (7 hours), iters = {MDP: 31648}, opt = 508.937
+> progress 3.944%, elapsed 1063 s, estimated 26959 s (7 hours), iters = {MDP: 31726}, opt = 508.937
+> progress 3.944%, elapsed 1066 s, estimated 27035 s (7 hours), iters = {MDP: 31803}, opt = 508.937
+> progress 3.944%, elapsed 1069 s, estimated 27112 s (7 hours), iters = {MDP: 31905}, opt = 508.937
+15.541994959977567 : 509.00680400091574
+> progress 3.944%, elapsed 1072 s, estimated 27188 s (7 hours), iters = {MDP: 31981}, opt = 509.007
+> progress 3.944%, elapsed 1075 s, estimated 27264 s (7 hours), iters = {MDP: 32051}, opt = 509.007
+> progress 3.944%, elapsed 1078 s, estimated 27341 s (7 hours), iters = {MDP: 32121}, opt = 509.007
+> progress 3.944%, elapsed 1081 s, estimated 27417 s (7 hours), iters = {MDP: 32192}, opt = 509.007
+> progress 3.944%, elapsed 1084 s, estimated 27493 s (7 hours), iters = {MDP: 32261}, opt = 509.007
+> progress 3.944%, elapsed 1087 s, estimated 27569 s (7 hours), iters = {MDP: 32330}, opt = 509.007
+> progress 3.944%, elapsed 1090 s, estimated 27646 s (7 hours), iters = {MDP: 32402}, opt = 509.007
+> progress 3.944%, elapsed 1093 s, estimated 27723 s (7 hours), iters = {MDP: 32473}, opt = 509.007
+> progress 3.944%, elapsed 1096 s, estimated 27799 s (7 hours), iters = {MDP: 32540}, opt = 509.007
+> progress 3.944%, elapsed 1099 s, estimated 27875 s (7 hours), iters = {MDP: 32611}, opt = 509.007
+> progress 3.944%, elapsed 1102 s, estimated 27952 s (7 hours), iters = {MDP: 32682}, opt = 509.007
+> progress 3.944%, elapsed 1105 s, estimated 28029 s (7 hours), iters = {MDP: 32751}, opt = 509.007
+> progress 3.944%, elapsed 1108 s, estimated 28106 s (7 hours), iters = {MDP: 32822}, opt = 509.007
+> progress 3.944%, elapsed 1111 s, estimated 28183 s (7 hours), iters = {MDP: 32898}, opt = 509.007
+> progress 3.952%, elapsed 1114 s, estimated 28203 s (7 hours), iters = {MDP: 32987}, opt = 509.007
+> progress 3.965%, elapsed 1117 s, estimated 28185 s (7 hours), iters = {MDP: 33068}, opt = 509.007
+> progress 3.97%, elapsed 1120 s, estimated 28229 s (7 hours), iters = {MDP: 33151}, opt = 509.007
+> progress 3.986%, elapsed 1123 s, estimated 28189 s (7 hours), iters = {MDP: 33231}, opt = 509.007
+> progress 4.005%, elapsed 1126 s, estimated 28127 s (7 hours), iters = {MDP: 33307}, opt = 509.007
+> progress 4.02%, elapsed 1129 s, estimated 28097 s (7 hours), iters = {MDP: 33385}, opt = 509.007
+> progress 4.033%, elapsed 1132 s, estimated 28083 s (7 hours), iters = {MDP: 33468}, opt = 509.007
+> progress 4.035%, elapsed 1135 s, estimated 28144 s (7 hours), iters = {MDP: 33552}, opt = 509.007
+> progress 4.035%, elapsed 1138 s, estimated 28219 s (7 hours), iters = {MDP: 33623}, opt = 509.007
+> progress 4.035%, elapsed 1141 s, estimated 28294 s (7 hours), iters = {MDP: 33693}, opt = 509.007
+> progress 4.035%, elapsed 1144 s, estimated 28368 s (7 hours), iters = {MDP: 33763}, opt = 509.007
+> progress 4.035%, elapsed 1147 s, estimated 28443 s (7 hours), iters = {MDP: 33834}, opt = 509.007
+> progress 4.035%, elapsed 1150 s, estimated 28518 s (7 hours), iters = {MDP: 33906}, opt = 509.007
+> progress 4.035%, elapsed 1153 s, estimated 28594 s (7 hours), iters = {MDP: 33974}, opt = 509.007
+> progress 4.035%, elapsed 1156 s, estimated 28668 s (7 hours), iters = {MDP: 34039}, opt = 509.007
+> progress 4.035%, elapsed 1160 s, estimated 28743 s (7 hours), iters = {MDP: 34101}, opt = 509.007
+> progress 4.035%, elapsed 1163 s, estimated 28818 s (8 hours), iters = {MDP: 34170}, opt = 509.007
+> progress 4.035%, elapsed 1166 s, estimated 28893 s (8 hours), iters = {MDP: 34241}, opt = 509.007
+> progress 4.035%, elapsed 1169 s, estimated 28969 s (8 hours), iters = {MDP: 34313}, opt = 509.007
+> progress 4.035%, elapsed 1172 s, estimated 29043 s (8 hours), iters = {MDP: 34384}, opt = 509.007
+> progress 4.035%, elapsed 1175 s, estimated 29118 s (8 hours), iters = {MDP: 34455}, opt = 509.007
+> progress 4.035%, elapsed 1178 s, estimated 29192 s (8 hours), iters = {MDP: 34538}, opt = 509.007
+> progress 4.035%, elapsed 1181 s, estimated 29267 s (8 hours), iters = {MDP: 34637}, opt = 509.007
+> progress 4.035%, elapsed 1184 s, estimated 29342 s (8 hours), iters = {MDP: 34715}, opt = 509.007
+> progress 4.035%, elapsed 1187 s, estimated 29416 s (8 hours), iters = {MDP: 34796}, opt = 509.007
+> progress 4.035%, elapsed 1190 s, estimated 29491 s (8 hours), iters = {MDP: 34873}, opt = 509.007
+> progress 4.035%, elapsed 1193 s, estimated 29566 s (8 hours), iters = {MDP: 34951}, opt = 509.007
+> progress 4.035%, elapsed 1196 s, estimated 29642 s (8 hours), iters = {MDP: 35033}, opt = 509.007
+> progress 4.035%, elapsed 1199 s, estimated 29716 s (8 hours), iters = {MDP: 35117}, opt = 509.007
+> progress 4.035%, elapsed 1202 s, estimated 29791 s (8 hours), iters = {MDP: 35200}, opt = 509.007
+> progress 4.035%, elapsed 1205 s, estimated 29865 s (8 hours), iters = {MDP: 35269}, opt = 509.007
+> progress 4.035%, elapsed 1208 s, estimated 29940 s (8 hours), iters = {MDP: 35348}, opt = 509.007
+> progress 4.035%, elapsed 1211 s, estimated 30015 s (8 hours), iters = {MDP: 35426}, opt = 509.007
+> progress 4.035%, elapsed 1214 s, estimated 30090 s (8 hours), iters = {MDP: 35505}, opt = 509.007
+> progress 4.036%, elapsed 1217 s, estimated 30161 s (8 hours), iters = {MDP: 35587}, opt = 509.007
+> progress 4.052%, elapsed 1220 s, estimated 30119 s (8 hours), iters = {MDP: 35666}, opt = 509.007
+> progress 4.06%, elapsed 1223 s, estimated 30131 s (8 hours), iters = {MDP: 35746}, opt = 509.007
+> progress 4.066%, elapsed 1226 s, estimated 30162 s (8 hours), iters = {MDP: 35825}, opt = 509.007
+> progress 4.09%, elapsed 1229 s, estimated 30057 s (8 hours), iters = {MDP: 35902}, opt = 509.007
+> progress 4.098%, elapsed 1232 s, estimated 30074 s (8 hours), iters = {MDP: 35986}, opt = 509.007
+> progress 4.109%, elapsed 1235 s, estimated 30069 s (8 hours), iters = {MDP: 36066}, opt = 509.007
+> progress 4.12%, elapsed 1238 s, estimated 30061 s (8 hours), iters = {MDP: 36138}, opt = 509.007
+> progress 4.142%, elapsed 1241 s, estimated 29974 s (8 hours), iters = {MDP: 36215}, opt = 509.007
+> progress 4.154%, elapsed 1244 s, estimated 29957 s (8 hours), iters = {MDP: 36294}, opt = 509.007
+> progress 4.176%, elapsed 1247 s, estimated 29875 s (8 hours), iters = {MDP: 36364}, opt = 509.007
+> progress 4.189%, elapsed 1250 s, estimated 29854 s (8 hours), iters = {MDP: 36436}, opt = 509.007
+> progress 4.202%, elapsed 1253 s, estimated 29833 s (8 hours), iters = {MDP: 36506}, opt = 509.007
+> progress 4.219%, elapsed 1256 s, estimated 29780 s (8 hours), iters = {MDP: 36578}, opt = 509.007
+> progress 4.226%, elapsed 1259 s, estimated 29803 s (8 hours), iters = {MDP: 36653}, opt = 509.007
+> progress 4.231%, elapsed 1262 s, estimated 29843 s (8 hours), iters = {MDP: 36723}, opt = 509.007
+> progress 4.236%, elapsed 1265 s, estimated 29879 s (8 hours), iters = {MDP: 36805}, opt = 509.007
+> progress 4.244%, elapsed 1268 s, estimated 29888 s (8 hours), iters = {MDP: 36885}, opt = 509.007
+> progress 4.25%, elapsed 1271 s, estimated 29921 s (8 hours), iters = {MDP: 36966}, opt = 509.007
+> progress 4.272%, elapsed 1274 s, estimated 29834 s (8 hours), iters = {MDP: 37033}, opt = 509.007
+> progress 4.289%, elapsed 1277 s, estimated 29788 s (8 hours), iters = {MDP: 37109}, opt = 509.007
+> progress 4.348%, elapsed 1280 s, estimated 29450 s (8 hours), iters = {MDP: 37180}, opt = 509.007
+> progress 4.367%, elapsed 1283 s, estimated 29392 s (8 hours), iters = {MDP: 37254}, opt = 509.007
+> progress 4.381%, elapsed 1286 s, estimated 29369 s (8 hours), iters = {MDP: 37335}, opt = 509.007
+> progress 4.395%, elapsed 1289 s, estimated 29342 s (8 hours), iters = {MDP: 37408}, opt = 509.007
+> progress 4.409%, elapsed 1292 s, estimated 29316 s (8 hours), iters = {MDP: 37483}, opt = 509.007
+> progress 4.416%, elapsed 1295 s, estimated 29341 s (8 hours), iters = {MDP: 37564}, opt = 509.007
+> progress 4.422%, elapsed 1298 s, estimated 29369 s (8 hours), iters = {MDP: 37645}, opt = 509.007
+> progress 4.428%, elapsed 1301 s, estimated 29397 s (8 hours), iters = {MDP: 37722}, opt = 509.007
+> progress 4.433%, elapsed 1304 s, estimated 29435 s (8 hours), iters = {MDP: 37799}, opt = 509.007
+> progress 4.443%, elapsed 1307 s, estimated 29432 s (8 hours), iters = {MDP: 37868}, opt = 509.007
+> progress 4.462%, elapsed 1310 s, estimated 29378 s (8 hours), iters = {MDP: 37939}, opt = 509.007
+> progress 4.473%, elapsed 1313 s, estimated 29374 s (8 hours), iters = {MDP: 38013}, opt = 509.007
+> progress 4.486%, elapsed 1317 s, estimated 29357 s (8 hours), iters = {MDP: 38080}, opt = 509.007
+> progress 4.506%, elapsed 1320 s, estimated 29293 s (8 hours), iters = {MDP: 38156}, opt = 509.007
+> progress 4.517%, elapsed 1323 s, estimated 29291 s (8 hours), iters = {MDP: 38231}, opt = 509.007
+> progress 4.526%, elapsed 1326 s, estimated 29296 s (8 hours), iters = {MDP: 38312}, opt = 509.007
+> progress 4.553%, elapsed 1329 s, estimated 29187 s (8 hours), iters = {MDP: 38382}, opt = 509.007
+> progress 4.567%, elapsed 1332 s, estimated 29167 s (8 hours), iters = {MDP: 38461}, opt = 509.007
+> progress 4.578%, elapsed 1335 s, estimated 29161 s (8 hours), iters = {MDP: 38538}, opt = 509.007
+> progress 4.587%, elapsed 1338 s, estimated 29171 s (8 hours), iters = {MDP: 38622}, opt = 509.007
+> progress 4.594%, elapsed 1341 s, estimated 29194 s (8 hours), iters = {MDP: 38701}, opt = 509.007
+15.726258174195713 : 509.48670288432
+> progress 4.596%, elapsed 1344 s, estimated 29244 s (8 hours), iters = {MDP: 38784}, opt = 509.487
+> progress 4.596%, elapsed 1347 s, estimated 29310 s (8 hours), iters = {MDP: 38862}, opt = 509.487
+> progress 4.596%, elapsed 1350 s, estimated 29375 s (8 hours), iters = {MDP: 38939}, opt = 509.487
+> progress 4.596%, elapsed 1353 s, estimated 29441 s (8 hours), iters = {MDP: 39013}, opt = 509.487
+> progress 4.596%, elapsed 1356 s, estimated 29507 s (8 hours), iters = {MDP: 39091}, opt = 509.487
+> progress 4.596%, elapsed 1359 s, estimated 29573 s (8 hours), iters = {MDP: 39165}, opt = 509.487
+> progress 4.596%, elapsed 1362 s, estimated 29639 s (8 hours), iters = {MDP: 39242}, opt = 509.487
+> progress 4.596%, elapsed 1365 s, estimated 29705 s (8 hours), iters = {MDP: 39316}, opt = 509.487
+> progress 4.596%, elapsed 1368 s, estimated 29770 s (8 hours), iters = {MDP: 39389}, opt = 509.487
+> progress 4.596%, elapsed 1371 s, estimated 29836 s (8 hours), iters = {MDP: 39465}, opt = 509.487
+> progress 4.596%, elapsed 1374 s, estimated 29902 s (8 hours), iters = {MDP: 39529}, opt = 509.487
+> progress 4.596%, elapsed 1377 s, estimated 29969 s (8 hours), iters = {MDP: 39604}, opt = 509.487
+> progress 4.596%, elapsed 1380 s, estimated 30035 s (8 hours), iters = {MDP: 39679}, opt = 509.487
+> progress 4.597%, elapsed 1383 s, estimated 30094 s (8 hours), iters = {MDP: 39757}, opt = 509.487
+> progress 4.601%, elapsed 1386 s, estimated 30133 s (8 hours), iters = {MDP: 39836}, opt = 509.487
+> progress 4.604%, elapsed 1389 s, estimated 30178 s (8 hours), iters = {MDP: 39934}, opt = 509.487
+> progress 4.613%, elapsed 1392 s, estimated 30183 s (8 hours), iters = {MDP: 40010}, opt = 509.487
+> progress 4.616%, elapsed 1395 s, estimated 30234 s (8 hours), iters = {MDP: 40093}, opt = 509.487
+> progress 4.626%, elapsed 1398 s, estimated 30230 s (8 hours), iters = {MDP: 40164}, opt = 509.487
+> progress 4.642%, elapsed 1401 s, estimated 30193 s (8 hours), iters = {MDP: 40239}, opt = 509.487
+> progress 4.652%, elapsed 1404 s, estimated 30191 s (8 hours), iters = {MDP: 40318}, opt = 509.487
+> progress 4.669%, elapsed 1407 s, estimated 30147 s (8 hours), iters = {MDP: 40389}, opt = 509.487
+> progress 4.673%, elapsed 1410 s, estimated 30186 s (8 hours), iters = {MDP: 40462}, opt = 509.487
+> progress 4.685%, elapsed 1413 s, estimated 30175 s (8 hours), iters = {MDP: 40539}, opt = 509.487
+> progress 4.692%, elapsed 1416 s, estimated 30193 s (8 hours), iters = {MDP: 40617}, opt = 509.487
+> progress 4.694%, elapsed 1419 s, estimated 30248 s (8 hours), iters = {MDP: 40697}, opt = 509.487
+> progress 4.701%, elapsed 1422 s, estimated 30267 s (8 hours), iters = {MDP: 40774}, opt = 509.487
+> progress 4.703%, elapsed 1425 s, estimated 30315 s (8 hours), iters = {MDP: 40875}, opt = 509.487
+> progress 4.707%, elapsed 1429 s, estimated 30353 s (8 hours), iters = {MDP: 40959}, opt = 509.487
+> progress 4.708%, elapsed 1432 s, estimated 30415 s (8 hours), iters = {MDP: 41036}, opt = 509.487
+> progress 4.708%, elapsed 1435 s, estimated 30479 s (8 hours), iters = {MDP: 41111}, opt = 509.487
+> progress 4.708%, elapsed 1438 s, estimated 30543 s (8 hours), iters = {MDP: 41182}, opt = 509.487
+> progress 4.708%, elapsed 1441 s, estimated 30607 s (8 hours), iters = {MDP: 41259}, opt = 509.487
+> progress 4.708%, elapsed 1444 s, estimated 30672 s (8 hours), iters = {MDP: 41333}, opt = 509.487
+> progress 4.708%, elapsed 1447 s, estimated 30735 s (8 hours), iters = {MDP: 41409}, opt = 509.487
+> progress 4.708%, elapsed 1450 s, estimated 30800 s (8 hours), iters = {MDP: 41484}, opt = 509.487
+> progress 4.708%, elapsed 1453 s, estimated 30864 s (8 hours), iters = {MDP: 41561}, opt = 509.487
+> progress 4.708%, elapsed 1456 s, estimated 30928 s (8 hours), iters = {MDP: 41638}, opt = 509.487
+> progress 4.708%, elapsed 1459 s, estimated 30992 s (8 hours), iters = {MDP: 41716}, opt = 509.487
+> progress 4.708%, elapsed 1462 s, estimated 31056 s (8 hours), iters = {MDP: 41794}, opt = 509.487
+> progress 4.708%, elapsed 1465 s, estimated 31121 s (8 hours), iters = {MDP: 41871}, opt = 509.487
+> progress 4.708%, elapsed 1468 s, estimated 31185 s (8 hours), iters = {MDP: 41946}, opt = 509.487
+> progress 4.718%, elapsed 1471 s, estimated 31183 s (8 hours), iters = {MDP: 42022}, opt = 509.487
+> progress 4.731%, elapsed 1474 s, estimated 31160 s (8 hours), iters = {MDP: 42098}, opt = 509.487
+> progress 4.747%, elapsed 1477 s, estimated 31120 s (8 hours), iters = {MDP: 42177}, opt = 509.487
+> progress 4.754%, elapsed 1480 s, estimated 31135 s (8 hours), iters = {MDP: 42263}, opt = 509.487
+> progress 4.77%, elapsed 1483 s, estimated 31096 s (8 hours), iters = {MDP: 42332}, opt = 509.487
+> progress 4.801%, elapsed 1486 s, estimated 30965 s (8 hours), iters = {MDP: 42409}, opt = 509.487
+> progress 4.82%, elapsed 1489 s, estimated 30905 s (8 hours), iters = {MDP: 42476}, opt = 509.487
+> progress 4.837%, elapsed 1492 s, estimated 30855 s (8 hours), iters = {MDP: 42553}, opt = 509.487
+> progress 4.845%, elapsed 1495 s, estimated 30868 s (8 hours), iters = {MDP: 42633}, opt = 509.487
+> progress 4.86%, elapsed 1498 s, estimated 30837 s (8 hours), iters = {MDP: 42700}, opt = 509.487
+> progress 4.877%, elapsed 1501 s, estimated 30792 s (8 hours), iters = {MDP: 42781}, opt = 509.487
+> progress 5.075%, elapsed 1504 s, estimated 29649 s (8 hours), iters = {MDP: 42830}, opt = 509.487
+> progress 5.195%, elapsed 1507 s, estimated 29024 s (8 hours), iters = {MDP: 42896}, opt = 509.487
+> progress 5.286%, elapsed 1510 s, estimated 28582 s (7 hours), iters = {MDP: 42964}, opt = 509.487
+> progress 5.395%, elapsed 1513 s, estimated 28059 s (7 hours), iters = {MDP: 43021}, opt = 509.487
+> progress 5.486%, elapsed 1517 s, estimated 27648 s (7 hours), iters = {MDP: 43090}, opt = 509.487
+> progress 5.65%, elapsed 1520 s, estimated 26900 s (7 hours), iters = {MDP: 43156}, opt = 509.487
+> progress 5.776%, elapsed 1523 s, estimated 26367 s (7 hours), iters = {MDP: 43217}, opt = 509.487
+> progress 5.868%, elapsed 1526 s, estimated 26008 s (7 hours), iters = {MDP: 43253}, opt = 509.487
+> progress 5.928%, elapsed 1529 s, estimated 25794 s (7 hours), iters = {MDP: 43315}, opt = 509.487
+> progress 5.978%, elapsed 1532 s, estimated 25630 s (7 hours), iters = {MDP: 43380}, opt = 509.487
+> progress 6.058%, elapsed 1535 s, estimated 25339 s (7 hours), iters = {MDP: 43437}, opt = 509.487
+> progress 6.106%, elapsed 1538 s, estimated 25192 s (6 hours), iters = {MDP: 43498}, opt = 509.487
+> progress 6.218%, elapsed 1541 s, estimated 24785 s (6 hours), iters = {MDP: 43551}, opt = 509.487
+> progress 6.423%, elapsed 1544 s, estimated 24041 s (6 hours), iters = {MDP: 43610}, opt = 509.487
+> progress 6.508%, elapsed 1547 s, estimated 23775 s (6 hours), iters = {MDP: 43669}, opt = 509.487
+> progress 6.538%, elapsed 1550 s, estimated 23710 s (6 hours), iters = {MDP: 43728}, opt = 509.487
+> progress 6.665%, elapsed 1553 s, estimated 23304 s (6 hours), iters = {MDP: 43777}, opt = 509.487
+> progress 6.721%, elapsed 1556 s, estimated 23156 s (6 hours), iters = {MDP: 43838}, opt = 509.487
+> progress 6.875%, elapsed 1559 s, estimated 22681 s (6 hours), iters = {MDP: 43903}, opt = 509.487
+> progress 6.945%, elapsed 1562 s, estimated 22498 s (6 hours), iters = {MDP: 43963}, opt = 509.487
