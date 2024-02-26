@@ -18,7 +18,7 @@ docker load -i paynt.tar
 
 If you get a permission error, make sure to precede docker commands with `sudo` to acquire root privileges. Upon loading the image, you can run the container with:
 ```
-docker run -v `pwd`/output:/synthesis/paynt/experiments-tac/output --rm -it randriu/paynt
+docker run -v `pwd`/output:/synthesis/paynt/experiments-tac/output --rm -it paynt:0.1.3
 ```
 
 `--rm` creates a disposable container that will be deleted upon exit. `-v` will mount the folder `output` in your current directory to the corresponding folder within the container where the experiment results will be stored. This will allow you to view the generated pdfs and inspect logs even after the container is not running. Executing the command above will place you in `/synthesis/paynt` folder, from which exeriments can be run using
@@ -34,7 +34,7 @@ The output is created in `/synthesis/paynt/experiments-tac/output`, which is mou
 
 You can exit the container via `exit` or `^D`. Upon finishing your review, you can remove the image from the Docker environment using:
 ```
-docker rmi randriu/paynt
+docker rmi paynt:0.1.3
 ```
 
 The Dockerfile used to create the image can be found in /synthesis/paynt/Dockerfile or at [PAYNT GitHub](https://github.com/randriu/synthesis).
