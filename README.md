@@ -1,6 +1,6 @@
-# Constrained Controller Synthesis Under Uncertainty: An Oracle-Guided Approach
+# An Oracle-Guided Approach to Constrained Controller Synthesis Under Uncertainty
 
-This artifact supplements TAC article *Constrained Controller Synthesis Under Uncertainty: An Oracle-Guided Approach*.
+This artifact supplements TAC article *An Oracle-Guided Approach to Constrained Controller Synthesis Under Uncertainty*.
 
 Contents of the artifact:
 - paynt.tar: the Docker image containing the tools and benchmarks discussed in the article, as well as scripts for their automated evaluation
