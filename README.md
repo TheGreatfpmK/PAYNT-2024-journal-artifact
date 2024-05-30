@@ -45,12 +45,13 @@ The evaluating script `./experiments-jair/benchmark.sh` allows the generation of
 
 ### Executing the evaluation script
 
-Running the benchmark script `./experiments-jair/benchmark.sh` without additional flags will evaluate experiments from the main part of the paper, which will take 10-12 hours. The following options allow you to replicate subsets of experiments.
-- `-1` generate log file for Table 1
-- `-2` generate log file for Table 2
-- `-4` generate log file for Table 4
-- `-t` generate log file for Table 1, Table 2 and Table 4
-- `-a` generate log file for Table 2 and Table 4 and case studies
+Running the benchmark script `./experiments-jair/benchmark.sh` without additional flags will evaluate experiments from the tables (this is equivalent to running with the falg `-t`). The following options allow you to replicate subsets of experiments. The name of the folder generated for the corresponding experiment is given in the parantheses
+- `-1` generate log files for Table 1 (jair24-cpomdp)
+- `-2` generate log files for Table 2 (jair24-dec-pomdp)
+- `-4` generate log files for Table 4 (jair24-method-ar, jair24-method=cegis, jair24-method-hybrid)
+- `-c` generate log files for case studies (jair24-case-studies)
+- `-t` generate log files for Table 1, Table 2 and Table 4
+- `-a` generate log files for Table 1, Table 2 and Table 4 and case studies
 
 The script creates log files in `experiments-jair/results/output` in sub-folders corresponding to the name of the experiment. When executing the script repeatedly, it detects whether the log files already exist, so you can run the experiments in any order and *can abort long ones without loss of progress*. To re-run the experiments, simply delete the corresponding log files or use option `-o` to force the overwrite.
 

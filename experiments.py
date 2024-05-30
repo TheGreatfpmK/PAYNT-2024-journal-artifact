@@ -9,11 +9,16 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 overwrite_logs = False
 
 # CHANGE THIS TO CHANGE WHAT MODELS SHOULD BE USED
-directory_main = os.fsencode(dir_path + '/../models/archive/tac24-synthesis')
+directory_main = os.fsencode(dir_path + '/../models/archive/jair24-synthesis')
 models_main = [ f.path for f in os.scandir(directory_main) if f.is_dir() ]
-directory_cpomdp = os.fsencode(dir_path + '/../models/archive/tac24-synthesis/cpomdp')
+
+directory_cpomdp = os.fsencode(dir_path + '/../models/archive/jair24-synthesis/cpomdp')
 models_cpomdp = [ f.path for f in os.scandir(directory_cpomdp) if f.is_dir() ]
-directory_cs = os.fsencode(dir_path + '/../models/archive/tac24-synthesis/case-studies')
+
+directory_decpomdp = os.fsencode(dir_path + '/../models/archive/jair24-synthesis/dec-pomdp')
+models_decpomdp = [ f.path for f in os.scandir(directory_decpomdp) if f.is_dir() ]
+
+directory_cs = os.fsencode(dir_path + '/../models/archive/jair24-synthesis/case-studies')
 models_cs = [ f.path for f in os.scandir(directory_cs) if f.is_dir() ]
 
 def run_experiment(options, models, logs_string, experiment_models, timeout, special={}):
@@ -83,48 +88,60 @@ if __name__ == '__main__':
     if experiment == 'models':
         pass
 
-    elif experiment == 't2':
+    elif experiment == 't4':
         experiment_models = ["dpm-demo", "grid", "grid-10-sl-4fsc", "grid-meet-sl-2fsc", "herman", "maze", "maze-sl-5", "pole", "pole-res", "refuel-06-res"]
 
         # AR
         options = ""
-        logs_string = "tac24-method-ar"
+        logs_string = "jair24-method-ar"
         timeout = 1800
         run_experiment(options, models_main, logs_string, experiment_models, timeout)
 
         # CEGIS
         options = "--method cegis"
-        logs_string = "tac24-method-cegis"
+        logs_string = "jair24-method-cegis"
         timeout = 1800
         run_experiment(options, models_main, logs_string, experiment_models, timeout)
 
         # Hybrid
         options = "--method hybrid"
-        logs_string = "tac24-method-hybrid"
+        logs_string = "jair24-method-hybrid"
         timeout = 1800
         run_experiment(options, models_main, logs_string, experiment_models, timeout)
 
 
-        print("\nTABLE 2 EXPERIMENT COMPLETE\n")
+        print("\nTABLE 4 EXPERIMENT COMPLETE\n")
 
-    elif experiment == 't4':
+    elif experiment == 't1':
         experiment_models = ["milos-97", "query-s3", "query-s4", "tiger-grid"]
         
         # PAYNT
         options = "--fsc-synthesis"
-        logs_string = "tac24-cpomdp"
+        logs_string = "jair24-cpomdp"
         timeout = 3600
         special = {"milos-97": f"--fsc-synthesis --constraint-bound 150", "query-s3": f"--fsc-synthesis --constraint-bound 2.75", "query-s4": f"--fsc-synthesis --constraint-bound 2.75", "tiger-grid": f"--fsc-synthesis --constraint-bound 0"}
         run_experiment(options, models_cpomdp, logs_string, experiment_models, timeout, special)
 
-        print("\nTABLE 4 EXPERIMENT COMPLETE\n")
+        print("\nTABLE 1 EXPERIMENT COMPLETE\n")
+
+    elif experiment == 't2':
+        experiment_models = ["recycling-2fsc", "grid3x3-1fsc", "dec-tiger-3fsc", "box-pushing-2fsc", "grid-meet-sl-3fsc-discount"]
+        
+        # PAYNT
+        options = "--fsc-synthesis"
+        logs_string = "jair24-dec-pomdp"
+        timeout = 3600
+        special = {"dec-tiger-3fsc": f"--fsc-synthesis --optimum-threshold -5.444", "box-pushing-2fsc": f"--fsc-synthesis --optimum-threshold 183.122", "grid-meet-sl-3fsc-discount": f"--fsc-synthesis --optimum-threshold -7.621"}
+        run_experiment(options, models_decpomdp, logs_string, experiment_models, timeout, special)
+
+        print("\nTABLE 2 EXPERIMENT COMPLETE\n")
 
     elif experiment == 'cs':
         experiment_models = []
         
         # PAYNT
         options = ""
-        logs_string = "tac24-case-studies"
+        logs_string = "jair24-case-studies"
         timeout = 900
         special = {"maze-multi": f"--fsc-synthesis"}
         run_experiment(options, models_cs, logs_string, experiment_models, timeout, special)
