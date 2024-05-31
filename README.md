@@ -18,7 +18,7 @@ docker load -i paynt.tar
 
 If you get a permission error, make sure to precede docker commands with `sudo` to acquire root privileges. Upon loading the image, you can run the container with:
 ```
-docker run -v `pwd`/output:/synthesis/paynt/experiments-jair/output --rm -it paynt:0.1.3
+docker run -v `pwd`/output:/opt/paynt/experiments-jair/output --rm -it paynt:0.1.3
 ```
 
 `--rm` creates a disposable container that will be deleted upon exit. `-v` will mount the folder `output` in your current directory to the corresponding folder within the container where the experiment results will be stored. This will allow you to inspect logs even after the container has stopped. Executing the command above will place you in `/synthesis/paynt` folder, from which exeriments can be run using
@@ -45,7 +45,7 @@ The evaluating script `./experiments-jair/benchmark.sh` allows the generation of
 
 ### Executing the evaluation script
 
-Running the benchmark script `./experiments-jair/benchmark.sh` without additional flags will evaluate experiments from the tables (this is equivalent to running with the falg `-t`). The following options allow you to replicate subsets of experiments. The name of the folder generated for the corresponding experiment is given in the parantheses
+Running the benchmark script `./experiments-jair/benchmark.sh` without additional flags will evaluate experiments from the tables (this is equivalent to running with the falg `-t`). The following options allow you to replicate subsets of experiments. The name of the folder generated for the corresponding experiment is given in the parantheses. Note you can only use one flag at a time!
 - `-1` generate log files for Table 1 (jair24-cpomdp)
 - `-2` generate log files for Table 2 (jair24-dec-pomdp)
 - `-4` generate log files for Table 4 (jair24-method-ar, jair24-method=cegis, jair24-method-hybrid)
